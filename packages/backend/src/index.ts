@@ -15,22 +15,40 @@ console.log("first typescript app Go!")
 
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-express'
-import Express from 'express'
 import { buildSchema } from 'type-graphql'
+import { PrismaClient } from '@prisma/client';
+// import { resolvers } from "@generated/type-graphql";
+import Express from 'express'
+import * as tq from 'type-graphql';
 
 import { MemberResolver } from './resolvers/memberResolver'
 
+const prisma = new PrismaClient()
+
 async function main() {
-  const schema = await buildSchema({
-    resolvers: [MemberResolver],
+  const schema = await tq.buildSchema({
+    resolvers: [MemberResolver], 
     emitSchemaFile: true,
-  })
+})
+
+//   const schema = await buildSchema({
+//     resolvers: [MemberResolver],
+//     emitSchemaFile: true,
+//   })
 
   const app = Express()
 
+  const context = () => {
+    return {
+      prisma
+    }
+  }
+
   const server = new ApolloServer({
     schema,
+    context,
   })
+
   await server.start()
 
   server.applyMiddleware({ app })

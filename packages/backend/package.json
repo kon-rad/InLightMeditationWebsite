@@ -8,6 +8,7 @@
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc",
     "start": "nodemon --exec ts-node src/index.ts",
+    "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
     "clean": "npm cache clean --force "
   },
   "keywords": [],
@@ -22,6 +23,8 @@
     "class-validator": "^0.13.2",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
+    "graphql-fields": "^2.0.3",
+    "graphql-type-json": "^0.3.2",
     "nodemon": "^2.0.15",
     "prisma": "3.5.0",
     "reflect-metadata": "^0.1.13",

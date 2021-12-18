@@ -18,17 +18,18 @@ import { ApolloServer } from 'apollo-server-express'
 import { buildSchema } from 'type-graphql'
 import { PrismaClient } from '@prisma/client';
 // import { resolvers } from "@generated/type-graphql";
+import { resolvers } from "@generated/type-graphql";
 import Express from 'express'
 import * as tq from 'type-graphql';
 
-import { MemberResolver } from './resolvers/memberResolver'
+// import { MemberResolver } from './resolvers/memberResolver'
 
 const prisma = new PrismaClient()
 
 async function main() {
   const schema = await tq.buildSchema({
-    resolvers: [MemberResolver], 
     emitSchemaFile: true,
+    resolvers,
 })
 
 //   const schema = await buildSchema({

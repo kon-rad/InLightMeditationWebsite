@@ -3,23 +3,328 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type AffectedRowsOutput {
+  count: Int!
+}
+
+type AggregateMember {
+  _avg: MemberAvgAggregate
+  _count: MemberCountAggregate
+  _max: MemberMaxAggregate
+  _min: MemberMinAggregate
+  _sum: MemberSumAggregate
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input IntWithAggregatesFilter {
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntWithAggregatesFilter
+  notIn: [Int!]
+}
+
 type Member {
   bio: String!
   email: String!
-  id: Float!
+  id: Int!
   name: String!
 }
 
-input MemberInput {
+type MemberAvgAggregate {
+  id: Float
+}
+
+input MemberAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+type MemberCountAggregate {
+  _all: Int!
+  bio: Int!
+  email: Int!
+  id: Int!
+  name: Int!
+}
+
+input MemberCountOrderByAggregateInput {
+  bio: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
+input MemberCreateInput {
   bio: String!
   email: String!
   name: String!
 }
 
+input MemberCreateManyInput {
+  bio: String!
+  email: String!
+  id: Int
+  name: String!
+}
+
+type MemberGroupBy {
+  _avg: MemberAvgAggregate
+  _count: MemberCountAggregate
+  _max: MemberMaxAggregate
+  _min: MemberMinAggregate
+  _sum: MemberSumAggregate
+  bio: String!
+  email: String!
+  id: Int!
+  name: String!
+}
+
+type MemberMaxAggregate {
+  bio: String
+  email: String
+  id: Int
+  name: String
+}
+
+input MemberMaxOrderByAggregateInput {
+  bio: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
+type MemberMinAggregate {
+  bio: String
+  email: String
+  id: Int
+  name: String
+}
+
+input MemberMinOrderByAggregateInput {
+  bio: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
+input MemberOrderByWithAggregationInput {
+  _avg: MemberAvgOrderByAggregateInput
+  _count: MemberCountOrderByAggregateInput
+  _max: MemberMaxOrderByAggregateInput
+  _min: MemberMinOrderByAggregateInput
+  _sum: MemberSumOrderByAggregateInput
+  bio: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
+input MemberOrderByWithRelationInput {
+  bio: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+}
+
+enum MemberScalarFieldEnum {
+  bio
+  email
+  id
+  name
+}
+
+input MemberScalarWhereWithAggregatesInput {
+  AND: [MemberScalarWhereWithAggregatesInput!]
+  bio: StringWithAggregatesFilter
+  email: StringWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  NOT: [MemberScalarWhereWithAggregatesInput!]
+  OR: [MemberScalarWhereWithAggregatesInput!]
+}
+
+type MemberSumAggregate {
+  id: Int
+}
+
+input MemberSumOrderByAggregateInput {
+  id: SortOrder
+}
+
+input MemberUpdateInput {
+  bio: StringFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+}
+
+input MemberUpdateManyMutationInput {
+  bio: StringFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+}
+
+input MemberWhereInput {
+  AND: [MemberWhereInput!]
+  bio: StringFilter
+  email: StringFilter
+  id: IntFilter
+  name: StringFilter
+  NOT: [MemberWhereInput!]
+  OR: [MemberWhereInput!]
+}
+
+input MemberWhereUniqueInput {
+  id: Int
+}
+
 type Mutation {
-  addMember(memberInput: MemberInput!): Member!
+  createManyMember(data: [MemberCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createMember(data: MemberCreateInput!): Member!
+  deleteManyMember(where: MemberWhereInput): AffectedRowsOutput!
+  deleteMember(where: MemberWhereUniqueInput!): Member
+  updateManyMember(data: MemberUpdateManyMutationInput!, where: MemberWhereInput): AffectedRowsOutput!
+  updateMember(data: MemberUpdateInput!, where: MemberWhereUniqueInput!): Member
+  upsertMember(create: MemberCreateInput!, update: MemberUpdateInput!, where: MemberWhereUniqueInput!): Member!
+}
+
+input NestedFloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input NestedIntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedIntWithAggregatesFilter {
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntWithAggregatesFilter
+  notIn: [Int!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
 }
 
 type Query {
-  getMembers: [Member!]
+  aggregateMember(cursor: MemberWhereUniqueInput, orderBy: [MemberOrderByWithRelationInput!], skip: Int, take: Int, where: MemberWhereInput): AggregateMember!
+  findFirstMember(cursor: MemberWhereUniqueInput, distinct: [MemberScalarFieldEnum!], orderBy: [MemberOrderByWithRelationInput!], skip: Int, take: Int, where: MemberWhereInput): Member
+  groupByMember(by: [MemberScalarFieldEnum!]!, having: MemberScalarWhereWithAggregatesInput, orderBy: [MemberOrderByWithAggregationInput!], skip: Int, take: Int, where: MemberWhereInput): [MemberGroupBy!]!
+  member(where: MemberWhereUniqueInput!): Member
+  members(cursor: MemberWhereUniqueInput, distinct: [MemberScalarFieldEnum!], orderBy: [MemberOrderByWithRelationInput!], skip: Int, take: Int, where: MemberWhereInput): [Member!]!
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
 }

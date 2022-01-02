@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/local/Cellar/node/16.10.0_1/bin/node /usr/local/bin/yarn add @generated/type-graphql
+  /Users/konradgnat/.nvm/versions/node/v14.18.2/bin/node /usr/local/bin/yarn add @generated/type-graphql
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/konradgnat/miniconda3/bin:/Users/konradgnat/miniconda3/condabin
+  /Users/konradgnat/.nvm/versions/node/v14.18.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
 
 Yarn version: 
   1.22.15
 
 Node version: 
-  16.10.0
+  14.18.2
 
 Platform: 
   darwin x64
@@ -17,14 +17,14 @@ Trace:
   Error: https://registry.yarnpkg.com/@generated%2ftype-graphql: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66140:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140885:22)
-      at Request.emit (node:events:390:28)
+      at Request.emit (events.js:400:28)
       at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141857:10)
-      at Request.emit (node:events:390:28)
+      at Request.emit (events.js:400:28)
       at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141779:12)
-      at Object.onceWrapper (node:events:509:28)
-      at IncomingMessage.emit (node:events:402:35)
-      at endReadableNT (node:internal/streams/readable:1343:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+      at Object.onceWrapper (events.js:519:28)
+      at IncomingMessage.emit (events.js:412:35)
+      at endReadableNT (internal/streams/readable.js:1334:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
 
 npm manifest: 
   {
@@ -37,6 +37,7 @@ npm manifest:
       "start:dev": "nodemon",
       "build": "rimraf ./build && tsc",
       "start": "nodemon --exec ts-node src/index.ts",
+      "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
       "clean": "npm cache clean --force "
     },
     "keywords": [],
@@ -51,14 +52,20 @@ npm manifest:
       "class-validator": "^0.13.2",
       "express": "^4.17.1",
       "graphql": "^15.3.0",
+      "graphql-fields": "^2.0.3",
+      "graphql-type-json": "^0.3.2",
       "nodemon": "^2.0.15",
       "prisma": "3.5.0",
       "reflect-metadata": "^0.1.13",
       "rimraf": "^3.0.2",
       "ts-node": "^10.4.0",
+      "ts-node-dev": "^1.1.8",
       "type-graphql": "^1.1.1",
       "typegraphql-prisma": "^0.18.0",
       "typescript": "^4.5.2"
+    },
+    "prisma": {
+      "seed": "ts-node ./prisma/seed.ts"
     }
   }
 
@@ -564,7 +571,7 @@ Lockfile:
   
   "@types/node@*", "@types/node@^16.11.10":
     version "16.11.10"
-    resolved "https://registry.npmjs.org/@types/node/-/node-16.11.10.tgz"
+    resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.10.tgz#2e3ad0a680d96367103d3e670d41c2fed3da61ae"
     integrity sha512-3aRnHa1KlOEEhJ6+CvyHKK5vE9BcLGjtUpwvqYLRvYNQKMfabu3BwfJaA/SLW8dxe28LsNDjtHwePTuzn3gmOA==
   
   "@types/node@^10.1.0":
@@ -609,6 +616,16 @@ Lockfile:
     dependencies:
       "@types/mime" "^1"
       "@types/node" "*"
+  
+  "@types/strip-bom@^3.0.0":
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/@types/strip-bom/-/strip-bom-3.0.0.tgz#14a8ec3956c2e81edb7520790aecf21c290aebd2"
+    integrity sha1-FKjsOVbC6B7bdSB5CuzyHCkK69I=
+  
+  "@types/strip-json-comments@0.0.30":
+    version "0.0.30"
+    resolved "https://registry.yarnpkg.com/@types/strip-json-comments/-/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
+    integrity sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==
   
   abbrev@1:
     version "1.1.1"
@@ -941,6 +958,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
     integrity sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI=
   
+  buffer-from@^1.0.0:
+    version "1.1.2"
+    resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
+    integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
+  
   buffer@^5.1.0, buffer@^5.5.0:
     version "5.7.1"
     resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.7.1.tgz#ba62e7c13133053582197160851a8f648e99eed0"
@@ -1002,7 +1024,7 @@ Lockfile:
       node-fetch "2.6.1"
       uuid "8.3.2"
   
-  chokidar@^3.5.2:
+  chokidar@^3.5.1, chokidar@^3.5.2:
     version "3.5.2"
     resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.5.2.tgz"
     integrity sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==
@@ -1306,6 +1328,13 @@ Lockfile:
     resolved "https://registry.npmjs.org/duplexer3/-/duplexer3-0.1.4.tgz"
     integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
   
+  dynamic-dedupe@^0.3.0:
+    version "0.3.0"
+    resolved "https://registry.yarnpkg.com/dynamic-dedupe/-/dynamic-dedupe-0.3.0.tgz#06e44c223f5e4e94d78ef9db23a6515ce2f962a1"
+    integrity sha1-BuRMIj9eTpTXjvnbI6ZRXOL5YqE=
+    dependencies:
+      xtend "^4.0.0"
+  
   ee-first@1.1.1:
     version "1.1.1"
     resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
@@ -1605,6 +1634,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz"
     integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
   
+  graphql-fields@^2.0.3:
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/graphql-fields/-/graphql-fields-2.0.3.tgz#5e68dff7afbb202be4f4f40623e983b22c96ab8f"
+    integrity sha512-x3VE5lUcR4XCOxPIqaO4CE+bTK8u6gVouOdpQX9+EKHr+scqtK5Pp/l8nIGqIpN1TUlkKE6jDCCycm/WtLRAwA==
+  
   graphql-query-complexity@^0.7.0:
     version "0.7.2"
     resolved "https://registry.npmjs.org/graphql-query-complexity/-/graphql-query-complexity-0.7.2.tgz"
@@ -1625,6 +1659,11 @@ Lockfile:
     integrity sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==
     dependencies:
       tslib "^2.1.0"
+  
+  graphql-type-json@^0.3.2:
+    version "0.3.2"
+    resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.3.2.tgz#f53a851dbfe07bd1c8157d24150064baab41e115"
+    integrity sha512-J+vjof74oMlCWXSvt0DOf2APEdZOCdubEvGDUAlqH//VBYcOYsGgRW7Xzorr44LvkjiuvecWc8fChxuZZbChtg==
   
   graphql@*, graphql@^15.3.0:
     version "15.3.0"
@@ -2104,7 +2143,7 @@ Lockfile:
     dependencies:
       brace-expansion "^1.1.7"
   
-  minimist@^1.2.0:
+  minimist@^1.2.0, minimist@^1.2.5:
     version "1.2.5"
     resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz"
     integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
@@ -2546,7 +2585,7 @@ Lockfile:
     dependencies:
       rc "^1.2.8"
   
-  resolve@1.20.0, resolve@^1.10.0:
+  resolve@1.20.0, resolve@^1.0.0, resolve@^1.10.0:
     version "1.20.0"
     resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.20.0.tgz#629a013fb3f70755d6f0b7935cc1c2c5378b1975"
     integrity sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==
@@ -2575,6 +2614,13 @@ Lockfile:
     version "3.0.2"
     resolved "https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz"
     integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
+    dependencies:
+      glob "^7.1.3"
+  
+  rimraf@^2.6.1:
+    version "2.7.1"
+    resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
+    integrity sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
     dependencies:
       glob "^7.1.3"
   
@@ -2702,6 +2748,19 @@ Lockfile:
       astral-regex "^2.0.0"
       is-fullwidth-code-point "^3.0.0"
   
+  source-map-support@^0.5.12, source-map-support@^0.5.17:
+    version "0.5.21"
+    resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.21.tgz#04fe7c7f9e1ed2d662233c28cb2b35b9f63f6e4f"
+    integrity sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==
+    dependencies:
+      buffer-from "^1.0.0"
+      source-map "^0.6.0"
+  
+  source-map@^0.6.0:
+    version "0.6.1"
+    resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+    integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+  
   spdx-correct@^3.0.0:
     version "3.1.1"
     resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.1.1.tgz#dece81ac9c1e6713e5f7d1b6f17d468fa53d89a9"
@@ -2763,6 +2822,11 @@ Lockfile:
     dependencies:
       ansi-regex "^5.0.1"
   
+  strip-bom@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
+    integrity sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=
+  
   strip-final-newline@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/strip-final-newline/-/strip-final-newline-2.0.0.tgz#89b852fb2fcbe936f6f4b3187afb0a12c1ab58ad"
@@ -2775,7 +2839,7 @@ Lockfile:
     dependencies:
       min-indent "^1.0.0"
   
-  strip-json-comments@~2.0.1:
+  strip-json-comments@^2.0.0, strip-json-comments@~2.0.1:
     version "2.0.1"
     resolved "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz"
     integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
@@ -2901,6 +2965,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
     integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
   
+  tree-kill@^1.2.2:
+    version "1.2.2"
+    resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
+    integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
+  
   ts-morph@^12.2.0:
     version "12.2.0"
     resolved "https://registry.yarnpkg.com/ts-morph/-/ts-morph-12.2.0.tgz#3332319cecd44aff0b7b410f1fe39637499b1a1b"
@@ -2909,9 +2978,25 @@ Lockfile:
       "@ts-morph/common" "~0.11.1"
       code-block-writer "^10.1.1"
   
+  ts-node-dev@^1.1.8:
+    version "1.1.8"
+    resolved "https://registry.yarnpkg.com/ts-node-dev/-/ts-node-dev-1.1.8.tgz#95520d8ab9d45fffa854d6668e2f8f9286241066"
+    integrity sha512-Q/m3vEwzYwLZKmV6/0VlFxcZzVV/xcgOt+Tx/VjaaRHyiBcFlV0541yrT09QjzzCxlDZ34OzKjrFAynlmtflEg==
+    dependencies:
+      chokidar "^3.5.1"
+      dynamic-dedupe "^0.3.0"
+      minimist "^1.2.5"
+      mkdirp "^1.0.4"
+      resolve "^1.0.0"
+      rimraf "^2.6.1"
+      source-map-support "^0.5.12"
+      tree-kill "^1.2.2"
+      ts-node "^9.0.0"
+      tsconfig "^7.0.0"
+  
   ts-node@^10.4.0:
     version "10.4.0"
-    resolved "https://registry.npmjs.org/ts-node/-/ts-node-10.4.0.tgz"
+    resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.4.0.tgz#680f88945885f4e6cf450e7f0d6223dd404895f7"
     integrity sha512-g0FlPvvCXSIO1JDF6S232P5jPYqBkRL9qly81ZgAOSU7rwI0stphCgd2kLiCrU9DjQCrJMWEqcNSjQL02s6d8A==
     dependencies:
       "@cspotcode/source-map-support" "0.7.0"
@@ -2926,6 +3011,28 @@ Lockfile:
       diff "^4.0.1"
       make-error "^1.1.1"
       yn "3.1.1"
+  
+  ts-node@^9.0.0:
+    version "9.1.1"
+    resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-9.1.1.tgz#51a9a450a3e959401bda5f004a72d54b936d376d"
+    integrity sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==
+    dependencies:
+      arg "^4.1.0"
+      create-require "^1.1.0"
+      diff "^4.0.1"
+      make-error "^1.1.1"
+      source-map-support "^0.5.17"
+      yn "3.1.1"
+  
+  tsconfig@^7.0.0:
+    version "7.0.0"
+    resolved "https://registry.yarnpkg.com/tsconfig/-/tsconfig-7.0.0.tgz#84538875a4dc216e5c4a5432b3a4dec3d54e91b7"
+    integrity sha512-vZXmzPrL+EmC4T/4rVlT2jNVMWCi/O4DIiSj3UHg1OE5kCKbk4mfrXc6dZksLgRM/TZlKnousKH9bbTazUWRRw==
+    dependencies:
+      "@types/strip-bom" "^3.0.0"
+      "@types/strip-json-comments" "0.0.30"
+      strip-bom "^3.0.0"
+      strip-json-comments "^2.0.0"
   
   tslib@^2.0.1, tslib@^2.1.0, tslib@^2.3.1, tslib@~2.3.0:
     version "2.3.1"
@@ -3000,7 +3107,7 @@ Lockfile:
   
   typescript@^4.5.2:
     version "4.5.2"
-    resolved "https://registry.npmjs.org/typescript/-/typescript-4.5.2.tgz"
+    resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
     integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
   
   undefsafe@^2.0.5:
@@ -3158,6 +3265,11 @@ Lockfile:
     dependencies:
       commander "^2.20.3"
       cssfilter "0.0.10"
+  
+  xtend@^4.0.0:
+    version "4.0.2"
+    resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
+    integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
   
   yallist@^4.0.0:
     version "4.0.0"

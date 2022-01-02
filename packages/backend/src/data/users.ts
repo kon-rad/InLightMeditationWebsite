@@ -1,26 +1,26 @@
 export const data = [
     {
       name: "John Doe 1",
-      bio: "developer master wizard",
-      id: 36243,
+      image: "imagepath",
       email: "someemail@email.com",
+      password: "12345",
     },
     {
       name: "John Doe 2",
-      bio: "developer master wizard",
-      id: 111332,
+      image: "imagepath",
       email: "someemail@email.com",
+      password: "12345",
     },
     {
       name: "John Doe 3",
-      bio: "developer master wizard",
-      id: 1234,
+      image: "imagepath",
       email: "someemail@email.com",
+      password: "12345",
     },
     {
       name: "John Doe 4",
-      bio: "developer master wizard",
-      id: 234525,
+      image: "imagepath",
       email: "someemail@email.com",
+      password: "12345",
     },
   ];

@@ -1,11 +1,11 @@
 // prisma/seed.ts
 
 import { PrismaClient } from '@prisma/client'
-import { data } from '../src/data/members'
+import { data } from '../src/data/users'
 const prisma = new PrismaClient()
 
 async function main() {
-  await prisma.member.createMany({
+  await prisma.user.createMany({
     data: data,
   })
 }

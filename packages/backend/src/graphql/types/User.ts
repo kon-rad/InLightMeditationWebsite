@@ -1,4 +1,4 @@
-import { objectType } from 'nexus';
+import { objectType, extendType } from 'nexus';
 
 export const User = objectType({
     name: 'User',
@@ -10,3 +10,15 @@ export const User = objectType({
         t.string('password')
     }
 })
+
+export const LinksQuery = extendType({
+    type: 'Query',
+    definition(t) {
+      t.nonNull.list.field('users', {
+        type: 'User',
+        resolve(_parent, _args, ctx) {
+          return ctx.prisma.user.findMany()
+        },
+      })
+    },
+  })

@@ -11,14 +11,14 @@ export const Session = objectType({
     }
 })
 
-// export const UserQuery = extendType({
-//     type: 'Query',
-//     definition(t) {
-//         t.nonNull.session.field('sessions', {
-//         type: 'Session',
-//         resolve(_parent, _args, ctx) {
-//             return ctx.prisma.session.findMany()
-//         },
-//         })
-//     },
-// })
+export const UserQuery = extendType({
+    type: 'Query',
+    definition(t) {
+        t.nonNull.list.field('session', {
+        type: 'Session',
+        resolve(_parent, _args, ctx) {
+            return ctx.prisma.session.findMany()
+        },
+        })
+    },
+})

@@ -13,3 +13,17 @@ seed database
 run prisma studio
 
 ```npx prisma studio```
+
+to start docker
+```docker-compose up -d```
+
+to init a prisma db
+```npx prisma migrate dev --name "init" ```
+
+
+# sources
+
+docker compose:
+https://dev.to/nditah/how-to-build-a-graphql-api-with-node-prisma-and-postgres-ajg
+
+

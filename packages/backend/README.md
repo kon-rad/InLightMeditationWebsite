@@ -26,4 +26,4 @@ to init a prisma db
 docker compose:
 https://dev.to/nditah/how-to-build-a-graphql-api-with-node-prisma-and-postgres-ajg
 
-
+https://www.prisma.io/blog/backend-prisma-typescript-orm-with-postgresql-auth-mngp1ps7kip4

@@ -21,13 +21,12 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { useAuth } from '../context/auth';
+import { useAuth } from "../context/auth";
 // import { app } from '../services/firebase';
 
 export default function Nav() {
     const { isOpen, onToggle } = useDisclosure();
-    const { currentUser } = useAuth();
-    console.log("nav currentUser: ", currentUser && currentUser.email);
+    const { currentUser, logout } = useAuth();
 
     return (
         <Box>
@@ -86,38 +85,43 @@ export default function Nav() {
                     direction={"row"}
                     spacing={6}
                 >
-                    <Button
-                        as={"a"}
-                        fontSize={"sm"}
-                        fontWeight={400}
-                        variant={"link"}
-                        href={"/signin"}
-                    >
-                        Sign In {currentUser && currentUser.email}
-                    </Button>
-                    <Button
-                        as={"a"}
-                        fontSize={"sm"}
-                        fontWeight={400}
-                        // onClick={() => ()}
-                    >
-                        Sign Out
-                    </Button>
-                    <Button
-                        display={{ base: "none", md: "inline-flex" }}
-                        fontSize={"sm"}
-                        fontWeight={600}
-                        color={"white"}
-                        bg={"pink.400"}
-                        
-                        _hover={{
-                            bg: "pink.300",
-                        }}
-                    >
-                      <Link href={"/signup"}>
-                        Sign Up
-                      </Link>
-                    </Button>
+                    {currentUser ? (
+                        <>
+                            Signed in as {currentUser && currentUser.email}
+                            <Button
+                                as={"a"}
+                                fontSize={"sm"}
+                                fontWeight={400}
+                                onClick={logout}
+                            >
+                                Sign Out
+                            </Button>
+                        </>
+                    ) : (
+                        <>
+                            <Button
+                                as={"a"}
+                                fontSize={"sm"}
+                                fontWeight={400}
+                                variant={"link"}
+                                href={"/signin"}
+                            >
+                                Sign In
+                            </Button>
+                            <Button
+                                display={{ base: "none", md: "inline-flex" }}
+                                fontSize={"sm"}
+                                fontWeight={600}
+                                color={"white"}
+                                bg={"pink.400"}
+                                _hover={{
+                                    bg: "pink.300",
+                                }}
+                            >
+                                <Link href={"/signup"}>Sign Up</Link>
+                            </Button>
+                        </>
+                    )}
                 </Stack>
             </Flex>
             <Collapse in={isOpen} animateOpacity>

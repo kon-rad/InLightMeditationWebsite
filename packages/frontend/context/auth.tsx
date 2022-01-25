@@ -26,6 +26,8 @@ const auth = getAuth();
 const AuthContext = React.createContext(undefined);
 
 export function AuthProvider({ children }: any) {
+    const [currentUser, setCurrentUser] = useState();
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [loading, setLoading] = useState(true);
 
     function signup(email: string, password: string) {
@@ -46,20 +48,21 @@ export function AuthProvider({ children }: any) {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user: any) => {
-            // added event listener
             setCurrentUser(user);
             setLoading(false);
+            setIsLoggedIn(true);
         });
         return unsubscribe;
     }, []);
 
-    const [currentUser, setCurrentUser] = useState();
     const value = {
         currentUser,
         signup,
         login,
         logout,
         resetPassword,
+        isLoggedIn,
+        loading,
     };
     return (
         <AuthContext.Provider value={value}>

@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useAuth } from "../context/auth";
+import Router from 'next/router'
 
 const SignIn: NextPage = () => {
     const [email, setEmail] = useState<string>("");
@@ -20,25 +21,9 @@ const SignIn: NextPage = () => {
     const handleClick = () => setShow(!show);
     const { login } = useAuth();
 
-    const signIn = async () => {
-        // const auth = getAuth();
-
+    const onLogIn = async () => {
          await login(email, password);
-         console.log("complted login");
-        // signInWithEmailAndPassword(auth, email, password)
-        //     .then((userCredential) => {
-        //         // Signed in
-        //         const user = userCredential.user;
-        //         // ...
-        //         console.log("signed in : ", user);
-
-        //         sessionStorage.setItem('Auth Token', user.refreshToken)
-        //     })
-        //     .catch((error) => {
-        //         const errorCode = error.code;
-        //         const errorMessage = error.message;
-        //         console.error(errorCode, errorMessage);
-        //     });
+         Router.push("/");
     };
     return (
         <Container>
@@ -68,7 +53,7 @@ const SignIn: NextPage = () => {
                         </InputRightElement>
                     </InputGroup>
                 </Box>
-                <Button colorScheme="purple" variant="solid" onClick={signIn}>
+                <Button colorScheme="purple" variant="solid" onClick={onLogIn}>
                     Sign In
                 </Button>
             </Flex>

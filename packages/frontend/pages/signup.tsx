@@ -11,7 +11,8 @@ import {
     InputRightElement,
 } from "@chakra-ui/react";
 import { NextPage } from "next";
-const auth = getAuth();
+import { useAuth } from '../context/auth';
+import Router from 'next/router'
 
 const SignUp: NextPage = () => {
     const [email, setEmail] = useState<string>("");
@@ -20,26 +21,15 @@ const SignUp: NextPage = () => {
     const [show, setShow] = useState(false);
     const [showConfirm, setShowConfirm] = useState(false);
     const handleClick = () => setShow(!show);
+    const { signup } = useAuth();
 
-    // const signup = async (email, password) => {
-    //     const user = await firebase.auth().createUserWithEmailAndPassword(email, password)
-    //     await user.user.sendEmailVerification()
-    //     return `Check your email for verification mail before logging in`
-    //   };
-    const signup = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                // ...
-                console.log("signed up: ", user);
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-                console.error(`Error: ${errorCode} ${errorMessage}`)
-            });
+    const onSignup = async () => {
+        if (password !== confirmPassword) {
+            alert("password does not match");
+            return;
+        }
+        await signup(email, password);
+        Router.push("/");
     };
     return (
         <Container>
@@ -84,8 +74,8 @@ const SignUp: NextPage = () => {
                         </InputRightElement>
                     </InputGroup>
                 </Box>
-                <Button colorScheme="purple" variant="solid" onClick={signup}>
-                    Sign In
+                <Button colorScheme="purple" variant="solid" onClick={onSignup}>
+                    Sign Up
                 </Button>
             </Flex>
         </Container>

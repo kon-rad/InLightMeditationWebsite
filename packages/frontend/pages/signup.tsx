@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {
     Container,
     Flex,
@@ -13,6 +12,7 @@ import {
 import { NextPage } from "next";
 import { useAuth } from '../context/auth';
 import Router from 'next/router'
+import { toast } from "react-toastify";
 
 const SignUp: NextPage = () => {
     const [email, setEmail] = useState<string>("");
@@ -25,11 +25,32 @@ const SignUp: NextPage = () => {
 
     const onSignup = async () => {
         if (password !== confirmPassword) {
-            alert("password does not match");
+            toast.error('password does not match', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             return;
         }
-        await signup(email, password);
-        Router.push("/");
+
+        try {
+            await signup(email, password);
+            Router.push("/");
+        } catch (e: any) {
+            toast.error(`${e}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
     };
     return (
         <Container>

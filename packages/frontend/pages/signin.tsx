@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
     Container,
     Flex,
@@ -13,6 +12,7 @@ import {
 import { NextPage } from "next";
 import { useAuth } from "../context/auth";
 import Router from 'next/router'
+import { toast } from "react-toastify";
 
 const SignIn: NextPage = () => {
     const [email, setEmail] = useState<string>("");
@@ -22,8 +22,20 @@ const SignIn: NextPage = () => {
     const { login } = useAuth();
 
     const onLogIn = async () => {
-         await login(email, password);
-         Router.push("/");
+        try {
+            await login(email, password);
+            Router.push("/");
+        } catch(e: any) {
+            toast.error(`${e}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
     };
     return (
         <Container>

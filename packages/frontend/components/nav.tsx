@@ -71,7 +71,7 @@ export default function Nav() {
                         fontFamily={"heading"}
                         color={useColorModeValue("gray.800", "white")}
                     >
-                        Logo
+                        InLight Meditation
                     </Text>
 
                     <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -79,50 +79,6 @@ export default function Nav() {
                     </Flex>
                 </Flex>
 
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={"flex-end"}
-                    direction={"row"}
-                    spacing={6}
-                >
-                    {currentUser ? (
-                        <>
-                            Signed in as {currentUser && currentUser.email}
-                            <Button
-                                as={"a"}
-                                fontSize={"sm"}
-                                fontWeight={400}
-                                onClick={logout}
-                            >
-                                Sign Out
-                            </Button>
-                        </>
-                    ) : (
-                        <>
-                            <Button
-                                as={"a"}
-                                fontSize={"sm"}
-                                fontWeight={400}
-                                variant={"link"}
-                                href={"/signin"}
-                            >
-                                Sign In
-                            </Button>
-                            <Button
-                                display={{ base: "none", md: "inline-flex" }}
-                                fontSize={"sm"}
-                                fontWeight={600}
-                                color={"white"}
-                                bg={"pink.400"}
-                                _hover={{
-                                    bg: "pink.300",
-                                }}
-                            >
-                                <Link href={"/signup"}>Sign Up</Link>
-                            </Button>
-                        </>
-                    )}
-                </Stack>
             </Flex>
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav />
@@ -306,43 +262,4 @@ interface NavItem {
     href?: string;
 }
 
-const NAV_ITEMS: Array<NavItem> = [
-    {
-        label: "Inspiration",
-        children: [
-            {
-                label: "Explore Design Work",
-                subLabel: "Trending Design to inspire you",
-                href: "#",
-            },
-            {
-                label: "New & Noteworthy",
-                subLabel: "Up-and-coming Designers",
-                href: "#",
-            },
-        ],
-    },
-    {
-        label: "Find Work",
-        children: [
-            {
-                label: "Job Board",
-                subLabel: "Find your dream design job",
-                href: "#",
-            },
-            {
-                label: "Freelance Projects",
-                subLabel: "An exclusive list for contract work",
-                href: "#",
-            },
-        ],
-    },
-    {
-        label: "Learn Design",
-        href: "#",
-    },
-    {
-        label: "Hire Designers",
-        href: "#",
-    },
-];
+const NAV_ITEMS: Array<NavItem> = [];

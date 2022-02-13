@@ -12,9 +12,18 @@ import {
     createIcon,
     IconProps,
     useColorModeValue,
+    Input,
   } from '@chakra-ui/react';
+import { useState } from 'react';
+// import Image as NextImage from 'next/image'
   
+const handleSubmit = () => {
+  console.log('submit');
+  
+}
   export default function Hero() {
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
     return (
       <Container maxW={'7xl'}>
         <Stack
@@ -28,52 +37,38 @@ import {
               fontWeight={600}
               fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
               <Text
-                as={'span'}
+                as={'h1'}
                 position={'relative'}
-                _after={{
-                  content: "''",
-                  width: 'full',
-                  height: '30%',
-                  position: 'absolute',
-                  bottom: 1,
-                  left: 0,
-                  bg: 'red.400',
-                  zIndex: -1,
-                }}>
-                Write once,
-              </Text>
-              <br />
-              <Text as={'span'} color={'red.400'}>
-                use everywhere!
+                color={"red.400"}
+                >
+                InLight Meditation
               </Text>
             </Heading>
             <Text color={'gray.500'}>
-              Snippy is a rich coding snippets app that lets you create your own
-              code snippets, categorize them, and even sync them in the cloud so
-              you can use them anywhere. All that is free!
+              Meditation has so many benefits, from physical health, to deeper insights into matters, to improvement in education, to better life decisions and greater self awareness.
+              The scienctific research on this is all in agreement, meditation has great benefits. It is so easy to do, and simple, why isn't it a more common practice?
+              This app aims to change that, through simple means: 
+              <ul>
+                <li>an easy to use, practical meditation timer</li>
+                <li>staking of monetary amounts in order to fulfill a pre set goal</li>
+                <li>building a long term community through regular group meditation</li>
+              </ul>
             </Text>
             <Stack
               spacing={{ base: 4, sm: 6 }}
               direction={{ base: 'column', sm: 'row' }}>
-              <Button
-                rounded={'full'}
-                size={'lg'}
-                fontWeight={'normal'}
-                px={6}
-                colorScheme={'red'}
-                bg={'red.400'}
-                _hover={{ bg: 'red.500' }}>
-                Get started
-              </Button>
-              <Button
-                rounded={'full'}
-                size={'lg'}
-                fontWeight={'normal'}
-                px={6}
-                leftIcon={<PlayIcon h={4} w={4} color={'gray.300'} />}>
-                How It Works
-              </Button>
+              <Input name="email" value={email} onChange={(e: any) => setEmail(e.target.value)} placeholder="email"/>
+              <Input name="name" value={name} onChange={(e: any) => setName(e.target.value)} placeholder="name"/>
             </Stack>
+              <Button
+                rounded={'full'}
+                size={'lg'}
+                fontWeight={'normal'}
+                px={6}
+                onClick={handleSubmit}
+                >
+                Notify me
+              </Button>
           </Stack>
           <Flex
             flex={1}
@@ -97,18 +92,6 @@ import {
               boxShadow={'2xl'}
               width={'full'}
               overflow={'hidden'}>
-              <IconButton
-                aria-label={'Play Button'}
-                variant={'ghost'}
-                _hover={{ bg: 'transparent' }}
-                icon={<PlayIcon w={12} h={12} />}
-                size={'lg'}
-                color={'white'}
-                position={'absolute'}
-                left={'50%'}
-                top={'50%'}
-                transform={'translateX(-50%) translateY(-50%)'}
-              />
               <Image
                 alt={'Hero Image'}
                 fit={'cover'}
@@ -116,7 +99,7 @@ import {
                 w={'100%'}
                 h={'100%'}
                 src={
-                  'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
+                  'https://images.unsplash.com/photo-1474418397713-7ede21d49118?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80'
                 }
               />
             </Box>

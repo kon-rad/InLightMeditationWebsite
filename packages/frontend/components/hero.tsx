@@ -94,7 +94,7 @@ export default function Hero() {
                     <Box p="4">
                         <Text color={"gray.500"}>
                             Meditation has many benefits; from physical health,
-                            to improvements in education, to better life
+                           to better life
                             decisions and greater self awareness. The
                             scienctific research on this is in agreement,
                             meditation has great benefits. It is so easy to do
@@ -103,10 +103,10 @@ export default function Hero() {
                         </Text>
                         <OrderedList spacing={3}>
                             <ListItem color={"gray.500"}>
-                                an easy to use, practical meditation timer
+                                an easy to use and practical meditation timer
                             </ListItem>
                             <ListItem color={"gray.500"}>
-                                staking of monetary amounts in order to fulfill
+                                staking in order to fulfill
                                 a pre set goal
                             </ListItem>
                             <ListItem color={"gray.500"}>

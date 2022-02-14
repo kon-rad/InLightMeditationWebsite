@@ -21,13 +21,10 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { useAuth } from "../context/auth";
 import Image from "next/image";
-// import { app } from '../services/firebase';
 
 export default function Nav() {
     const { isOpen, onToggle } = useDisclosure();
-    const { currentUser, logout } = useAuth();
 
     return (
         <Box>

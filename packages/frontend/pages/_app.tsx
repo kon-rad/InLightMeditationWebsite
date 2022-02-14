@@ -4,7 +4,6 @@ import Head from "next/head";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
-import { AuthProvider } from "../context/auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { initializeApp, getApp, getApps } from "firebase/app";
@@ -36,7 +35,6 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        // <AuthProvider>
             <ChakraProvider theme={theme}>
                     <Head>
                         <title>InLight App</title>
@@ -61,7 +59,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                     pauseOnHover
                 />
             </ChakraProvider>
-        // </AuthProvider>
     );
 }
 

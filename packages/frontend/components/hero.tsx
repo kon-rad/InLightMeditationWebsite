@@ -115,11 +115,12 @@ export default function Hero() {
                             </ListItem>
                         </OrderedList>
                     </Box>
+                    <Text fontSize="xl">Sign up to get notified when InLight App launches!</Text>
+
                     <Stack
                         spacing={{ base: 4, sm: 6 }}
                         direction={{ base: "column", sm: "row" }}
                     >
-                      <Text fontSize="xl">Sign up to get notified when InLight App launches!</Text>
                         <Input
                             name="email"
                             value={email}

@@ -10,14 +10,6 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Hero />
-      <Flex justifyContent="center" alignItems="center" direction="column">
-        <Box maxWidth="1200px" my={12}>
-          <Features />
-        </Box>
-        <Box maxWidth="1200px" my={12}>
-          <Statistics />
-        </Box>
-      </Flex>
     </div>
   )
 }

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,12 +13,10 @@
     "@chakra-ui/react": "^1.7.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@prisma/client": "^3.5.0",
     "firebase": "^9.6.2",
     "framer-motion": "^4",
     "graphql": "^16.2.0",
     "next": "12.0.4",
-    "prisma": "3.5.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",

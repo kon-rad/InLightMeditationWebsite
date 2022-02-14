@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { AuthProvider } from "../context/auth";
@@ -22,10 +22,22 @@ const firebaseConfig = {
 
 export const app =
     getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+
+const theme = extendTheme({
+  colors: {
+    brand: {
+      100: "#81B29A",
+      200: "#FFD82B",
+      300: "#FFEE2E",
+      400: "#D0C557"
+    },
+  },
+})
+
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <AuthProvider>
-            <ChakraProvider>
+            <ChakraProvider theme={theme}>
                     <Head>
                         <title>InLight App</title>
                         <meta

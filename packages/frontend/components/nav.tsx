@@ -22,6 +22,7 @@ import {
     ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { useAuth } from "../context/auth";
+import Image from "next/image";
 // import { app } from '../services/firebase';
 
 export default function Nav() {
@@ -62,23 +63,14 @@ export default function Nav() {
                 <Flex
                     flex={{ base: 1 }}
                     justify={{ base: "center", md: "start" }}
+                    align="center"
                 >
-                    <Text
-                        textAlign={useBreakpointValue({
-                            base: "center",
-                            md: "left",
-                        })}
-                        fontFamily={"heading"}
-                        color={useColorModeValue("gray.800", "white")}
-                    >
-                        InLight Meditation
-                    </Text>
+                    <Image width="38px" height="38px" src="/logo.png" />
 
                     <Flex display={{ base: "none", md: "flex" }} ml={10}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
-
             </Flex>
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav />

@@ -36,7 +36,7 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <AuthProvider>
+        // <AuthProvider>
             <ChakraProvider theme={theme}>
                     <Head>
                         <title>InLight App</title>
@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     pauseOnHover
                 />
             </ChakraProvider>
-        </AuthProvider>
+        // </AuthProvider>
     );
 }
 

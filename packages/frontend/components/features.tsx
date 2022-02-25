@@ -1,59 +1,131 @@
-import { ReactElement } from 'react';
-import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react';
-import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
+import { ReactElement, useState } from "react";
+import {
+    Box,
+    Input,
+    Image,
+    HStack,
+    VStack,
+    Icon,
+    Text,
+    Stack,
+    Flex,
+    Button,
+} from "@chakra-ui/react";
+import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
+import { toast } from "react-toastify";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
+
+const db: any = getFirestore();
 
 interface FeatureProps {
-  title: string;
-  text: string;
-  icon: ReactElement;
+    title: string;
+    text: string;
+    icon: ReactElement;
 }
 
-const Feature = ({ title, text, icon }: FeatureProps) => {
-  return (
-    <Stack>
-      <Flex
-        w={16}
-        h={16}
-        align={'center'}
-        justify={'center'}
-        color={'white'}
-        rounded={'full'}
-        bg={'gray.100'}
-        mb={1}>
-        {icon}
-      </Flex>
-      <Text fontWeight={600}>{title}</Text>
-      <Text color={'gray.600'}>{text}</Text>
-    </Stack>
-  );
-};
-
 export default function Features() {
-  return (
-    <Box p={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-        <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={'Lifetime Support'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
-          title={'Unlimited Donations'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={'Instant Delivery'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-      </SimpleGrid>
-    </Box>
-  );
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+
+    const handleSubmit = async () => {
+        if (!name || !email) {
+            toast.error(`Make sure to enter your name and email!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+        try {
+            await addDoc(collection(db, "landingpage"), {
+                name,
+                email,
+            });
+            toast(`You're signed up!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setName("");
+            setEmail("");
+        } catch (e) {
+            toast.error(`${e}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+    };
+
+    return (
+        <Box p={4}>
+            <HStack justify="center" mb="8" mt="4">
+                <Box>
+                    <Image
+                        src="images/features-1.png"
+                        height="450px"
+                        objectFit="contain"
+                    />
+                </Box>
+                <Box>
+                    <Image
+                        src="images/features-2.png"
+                        height="450px"
+                        objectFit="contain"
+                    />
+                </Box>
+                <Box>
+                    <Image
+                        src="images/features-3.png"
+                        height="450px"
+                        objectFit="contain"
+                    />
+                </Box>
+            </HStack>
+            <VStack justify="center" m="6">
+                <Stack
+                    spacing={{ base: 4, sm: 6 }}
+                    direction={{ base: "column", sm: "row" }}
+                >
+                    <Input
+                      style={{
+                        'fontFamily': 'Quicksand'
+                      }}
+                        width="300px"
+                        name="email"
+                        value={email}
+                        onChange={(e: any) => setEmail(e.target.value)}
+                        placeholder="enter your email"
+                    />
+                </Stack>
+                <Button
+                    style={{
+                      'fontFamily': 'Quicksand'
+                    }}
+                    rounded={"full"}
+                    size={"lg"}
+                    fontWeight={"normal"}
+                    backgroundColor={"brand.300"}
+                    color={"black.600"}
+                    width={"220px"}
+                    px={6}
+                    onClick={handleSubmit}
+                >
+                    Join the Community
+                </Button>
+            </VStack>
+        </Box>
+    );
 }

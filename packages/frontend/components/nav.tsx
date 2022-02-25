@@ -12,6 +12,7 @@ import {
     PopoverContent,
     useColorModeValue,
     useDisclosure,
+    Image,
 } from "@chakra-ui/react";
 import {
     HamburgerIcon,
@@ -19,7 +20,6 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from "@chakra-ui/icons";
-import Image from "next/image";
 
 export default function Nav() {
     const { isOpen, onToggle } = useDisclosure();
@@ -60,8 +60,13 @@ export default function Nav() {
                     justify={{ base: "center", md: "start" }}
                     align="center"
                 >
-                    <Image width="38px" height="38px" src="/logo.png" />
-
+                    <Image
+                        src="/images/logo_with_name.png" 
+                        height="70px"
+                        objectFit="contain" />
+                        style={{
+                            marginBottom: '-10px'
+                        }}
                     <Flex display={{ base: "none", md: "flex" }} ml={10}>
                         <DesktopNav />
                     </Flex>

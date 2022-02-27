@@ -24,11 +24,11 @@ interface FeatureProps {
 }
 
 export default function Features() {
-    const [name, setName] = useState<string>("");
+    // const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
 
     const handleSubmit = async () => {
-        if (!name || !email) {
+        if (!email) {
             toast.error(`Make sure to enter your name and email!`, {
                 position: "top-right",
                 autoClose: 5000,
@@ -42,7 +42,7 @@ export default function Features() {
         }
         try {
             await addDoc(collection(db, "landingpage"), {
-                name,
+                // name,
                 email,
             });
             toast(`You're signed up!`, {
@@ -54,7 +54,7 @@ export default function Features() {
                 draggable: true,
                 progress: undefined,
             });
-            setName("");
+            // setName("");
             setEmail("");
         } catch (e) {
             toast.error(`${e}`, {
@@ -101,7 +101,9 @@ export default function Features() {
                 >
                     <Input
                       style={{
-                        'fontFamily': 'Quicksand'
+                        'fontFamily': 'Quicksand',
+                        color: "brand.600",
+                        backgroundColor: "brand.700",
                       }}
                         width="300px"
                         name="email"
@@ -114,11 +116,11 @@ export default function Features() {
                     style={{
                       'fontFamily': 'Quicksand'
                     }}
-                    rounded={"full"}
+                    borderRadius="8px"
                     size={"lg"}
                     fontWeight={"normal"}
-                    backgroundColor={"brand.300"}
-                    color={"black.600"}
+                    backgroundColor={"brand.500"}
+                    color={"white"}
                     width={"220px"}
                     px={6}
                     onClick={handleSubmit}

@@ -63,10 +63,11 @@ export default function Nav() {
                     <Image
                         src="/images/logo_with_name.png" 
                         height="70px"
-                        objectFit="contain" />
+                        objectFit="contain"
                         style={{
                             marginBottom: '-10px'
                         }}
+                        />
                     <Flex display={{ base: "none", md: "flex" }} ml={10}>
                         <DesktopNav />
                     </Flex>

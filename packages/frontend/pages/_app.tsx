@@ -28,7 +28,10 @@ const theme = extendTheme({
       100: "#81B29A",
       200: "#FFD82B",
       300: "#FFEE2E",
-      400: "#D0C557"
+      400: "#D0C557",
+      500: "#d7d27c", // light bage
+      600: "#efefef", // white gray
+      700: "#959595" // dark gray
     },
   },
 })

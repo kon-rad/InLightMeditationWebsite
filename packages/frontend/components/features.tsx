@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useEffect } from "react";
 import {
     Box,
     Input,
@@ -20,8 +20,17 @@ interface FeatureProps {
 }
 
 export default function Features() {
-    const [isMobile] = useMediaQuery("(max-width: 600px)");
+    const [mediaQuery] = useMediaQuery("(max-width: 600px)");
     const [email, setEmail] = useState<string>("");
+    const [isMobile, setIsMobile] = useState(false)
+    // const [isMinWidthMedium, setIsMinWidthMedium] = useState(false);
+    // const mediaQuery = useMediaQuery("(min-width: 768px)");
+  
+    useEffect(() => {
+      if(mediaQuery !== isMobile){
+        setIsMobile(mediaQuery);
+      }
+    }, [mediaQuery])
 
     const handleSubmit = async () => {
         if (!email) {

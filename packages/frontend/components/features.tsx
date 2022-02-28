@@ -3,15 +3,11 @@ import {
     Box,
     Input,
     Image,
-    HStack,
     VStack,
-    Icon,
-    Text,
-    Stack,
+    useMediaQuery,
     Flex,
     Button,
 } from "@chakra-ui/react";
-import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
 import { toast } from "react-toastify";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 
@@ -24,12 +20,12 @@ interface FeatureProps {
 }
 
 export default function Features() {
-    // const [name, setName] = useState<string>("");
+    const [isMobile] = useMediaQuery("(max-width: 600px)");
     const [email, setEmail] = useState<string>("");
 
     const handleSubmit = async () => {
         if (!email) {
-            toast.error(`Make sure to enter your name and email!`, {
+            toast.error(`Make sure to enter your email!`, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -54,7 +50,6 @@ export default function Features() {
                 draggable: true,
                 progress: undefined,
             });
-            // setName("");
             setEmail("");
         } catch (e) {
             toast.error(`${e}`, {
@@ -69,52 +64,49 @@ export default function Features() {
         }
     };
 
+    const direction = isMobile ? "column" : "row";
+    const width = isMobile ? "100%" : "360px";
     return (
         <Box p={4}>
-            <HStack justify="center" mb="8" mt="4">
-                <Box>
+            <Flex direction={direction} justify="center" mb="8" mt="4">
+                <Box m={"6"}>
                     <Image
                         src="images/features-1.png"
                         height="450px"
                         objectFit="contain"
                     />
                 </Box>
-                <Box>
+                <Box m={"6"}>
                     <Image
                         src="images/features-2.png"
                         height="450px"
                         objectFit="contain"
                     />
                 </Box>
-                <Box>
+                <Box m={"6"}>
                     <Image
                         src="images/features-3.png"
                         height="450px"
                         objectFit="contain"
                     />
                 </Box>
-            </HStack>
+            </Flex>
             <VStack justify="center" m="6">
-                <Stack
-                    spacing={{ base: 4, sm: 6 }}
-                    direction={{ base: "column", sm: "row" }}
-                >
-                    <Input
-                      style={{
-                        'fontFamily': 'Quicksand',
+                <Input
+                    style={{
+                        fontFamily: "Quicksand",
                         color: "brand.600",
                         backgroundColor: "brand.700",
-                      }}
-                        width="300px"
-                        name="email"
-                        value={email}
-                        onChange={(e: any) => setEmail(e.target.value)}
-                        placeholder="enter your email"
-                    />
-                </Stack>
+                    }}
+                    width={width}
+                    name="email"
+                    value={email}
+                    onChange={(e: any) => setEmail(e.target.value)}
+                    placeholder="enter your email"
+                />
                 <Button
                     style={{
-                      'fontFamily': 'Quicksand'
+                        fontFamily: "Quicksand",
                     }}
                     borderRadius="8px"
                     size={"lg"}

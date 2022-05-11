@@ -48,7 +48,7 @@ const PrivacyPolicy: NextPage = () => {
                 Cookies are files with a small amount of data that are
                 commonly used as anonymous unique identifiers. These are sent
                 to your browser from the websites that you visit and are
-                stored on your device's internal memory.
+                stored on your device&apos;s internal memory.
             </p> <p>
                 This Service does not use these “cookies” explicitly. However,
                 the app may use third-party code and libraries that use
@@ -82,7 +82,7 @@ const PrivacyPolicy: NextPage = () => {
                 no control over and assume no responsibility for the content,
                 privacy policies, or practices of any third-party sites or
                 services.
-            </p> <p><strong>Children's Privacy</strong></p> <div><p>
+            </p> <p><strong>Children&apos;s Privacy</strong></p> <div><p>
                 These Services do not address anyone under the age of 13.
                 We do not knowingly collect personally
                 identifiable information from children under 13 years of age. In the case

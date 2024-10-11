@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
           <Text as="em" mb={8}>Last updated: October 8, 2024</Text>
 
           <Heading as="h2" size="xl" mt={8} mb={4}>1. Introduction</Heading>
-          <Text>InLight Meditation ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our InLight Meditation Timer app and AI Meditation Coach service (the "Service").</Text>
+          <Text>InLight Meditation (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our InLight Meditation Timer app and AI Meditation Coach service (the &quot;Service&quot;).</Text>
 
           <Heading as="h2" size="xl" mt={8} mb={4}>2. Information We Collect</Heading>
           <Text>We collect several types of information for various purposes to provide and improve our Service to you:</Text>
@@ -64,11 +64,11 @@ const PrivacyPolicy = () => {
           </ul>
           <Text>These third parties have access to your Personal Information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</Text>
 
-          <Heading as="h2" size="xl" mt={8} mb={4}>7. Children's Privacy</Heading>
-          <Text>Our Service does not address anyone under the age of 18 ("Children"). If you are under 18, please do not use the subscription features of our Service without parental consent.</Text>
+          <Heading as="h2" size="xl" mt={8} mb={4}>7. Children&apos;s Privacy</Heading>
+          <Text>Our Service does not address anyone under the age of 18 (&quot;Children&quot;). If you are under 18, please do not use the subscription features of our Service without parental consent.</Text>
 
           <Heading as="h2" size="xl" mt={8} mb={4}>8. Changes to This Privacy Policy</Heading>
-          <Text>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</Text>
+          <Text>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.</Text>
 
           <Heading as="h2" size="xl" mt={8} mb={4}>9. Your Rights</Heading>
           <Text>Depending on your location, you may have certain rights regarding your personal information, such as the right to access, correct, or delete your data. Please contact us to exercise these rights.</Text>

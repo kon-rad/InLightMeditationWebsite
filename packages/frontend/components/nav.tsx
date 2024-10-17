@@ -12,6 +12,7 @@ import {
     useColorModeValue,
     useDisclosure,
     Image,
+    Button,
 } from "@chakra-ui/react";
 import {
     ChevronDownIcon,
@@ -22,9 +23,9 @@ export default function Nav() {
     const { isOpen, onToggle } = useDisclosure();
 
     return (
-        <Box>
+        <Box bg="gray.100">
             <Flex
-                bg={useColorModeValue("white", "gray.800")}
+                bg="gray.100"
                 color={useColorModeValue("gray.600", "white")}
                 minH={"60px"}
                 py={{ base: 2 }}
@@ -33,6 +34,7 @@ export default function Nav() {
                 borderStyle={"solid"}
                 borderColor={useColorModeValue("gray.200", "gray.900")}
                 align={"center"}
+                justify={"space-between"}
             >
                 <Flex
                     flex={{ base: 1 }}
@@ -40,17 +42,33 @@ export default function Nav() {
                     align="center"
                 >
                     <Image
-                        src="/images/logo_with_name.png" 
+                        src="/images/logo-final.png" 
                         height="70px"
                         objectFit="contain"
                         style={{
                             marginBottom: '-10px'
                         }}
-                        />
+                        borderRadius="md"
+                    />
                     <Flex display={{ base: "none", md: "flex" }} ml={10}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
+
+                <Button
+                    as={Link}
+                    display={{ base: "none", md: "inline-flex" }}
+                    fontSize={"sm"}
+                    fontWeight={600}
+                    color={"white"}
+                    bg={"black"}
+                    href={"https://apps.apple.com/us/app/inlight-meditation-timer/id1590699795"}
+                    _hover={{
+                        bg: "pink.300",
+                    }}
+                >
+                    Download App Now
+                </Button>
             </Flex>
         </Box>
     );

@@ -76,30 +76,7 @@ export default function Features() {
     const direction = isMobile ? "column" : "row";
     const width = isMobile ? "100%" : "360px";
     return (
-        <Box p={4}>
-            <Flex direction={direction} justify="center" mb="8" mt="4">
-                <Box m={"6"}>
-                    <Image
-                        src="images/features-1.png"
-                        height="450px"
-                        objectFit="contain"
-                    />
-                </Box>
-                <Box m={"6"}>
-                    <Image
-                        src="images/features-2.png"
-                        height="450px"
-                        objectFit="contain"
-                    />
-                </Box>
-                <Box m={"6"}>
-                    <Image
-                        src="images/features-3.png"
-                        height="450px"
-                        objectFit="contain"
-                    />
-                </Box>
-            </Flex>
+        <Box p={4} bg="gray.100">
             <VStack justify="center" m="6">
                 <Input
                     style={{

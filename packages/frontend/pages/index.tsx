@@ -6,7 +6,7 @@ import LandignPage from '../components/landing-page';
 
 const Home: NextPage = () => {
   return (
-    <div bg="gray.100">
+    <div>
       <LandignPage />
       <Features />
     </div>

@@ -55,20 +55,36 @@ export default function Nav() {
                     </Flex>
                 </Flex>
 
-                <Button
-                    as={Link}
-                    display={{ base: "none", md: "inline-flex" }}
-                    fontSize={"sm"}
-                    fontWeight={600}
-                    color={"white"}
-                    bg={"black"}
-                    href={"https://apps.apple.com/us/app/inlight-meditation-timer/id1590699795"}
-                    _hover={{
-                        bg: "pink.300",
-                    }}
-                >
-                    Download App Now
-                </Button>
+                <Stack direction="row" spacing={4}>
+                    <Button
+                        as={Link}
+                        display={{ base: "none", md: "inline-flex" }}
+                        fontSize={"sm"}
+                        fontWeight={600}
+                        color={"white"}
+                        bg={"black"}
+                        href={"https://apps.apple.com/us/app/inlight-meditation-timer/id1590699795"}
+                        _hover={{
+                            bg: "pink.300",
+                        }}
+                    >
+                        Download App Now
+                    </Button>
+                    <Button
+                        as={Link}
+                        display={{ base: "none", md: "inline-flex" }}
+                        fontSize={"sm"}
+                        fontWeight={600}
+                        color={"white"}
+                        bg={"black"}
+                        href={"mailto:konradmgnat@gmail.com"}
+                        _hover={{
+                            bg: "pink.300",
+                        }}
+                    >
+                        Request Support
+                    </Button>
+                </Stack>
             </Flex>
         </Box>
     );
